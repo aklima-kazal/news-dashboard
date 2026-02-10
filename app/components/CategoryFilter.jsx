@@ -8,18 +8,15 @@ export default function CategoryFilter() {
   const router = useRouter();
   const params = useSearchParams();
 
-  // Current selected category
   const selectedCategory = params.get("category") || "";
 
   function handleSelect(cat) {
-    const q = new URLSearchParams(params.toString());
-    if (cat === selectedCategory) {
-      q.delete("category"); // toggle off
-    } else {
-      q.set("category", cat);
-    }
-    q.set("page", 1); // reset page on new filter
-    router.push(`?${q.toString()}`);
+    const q = new URLSearchParams();
+    q.set("category", cat);
+    q.set("page", 1);
+
+    // navigate to another page
+    router.push(`/category?${q.toString()}`);
   }
 
   return (
@@ -30,7 +27,7 @@ export default function CategoryFilter() {
           onClick={() => handleSelect(c)}
           className={`px-3 py-1 rounded border ${
             selectedCategory === c
-              ? "bg-blue-600 text-white border-blue-600"
+              ? "bg-purple-600 text-white border-purple-600"
               : "bg-white border-gray-300 hover:bg-gray-200"
           }`}
         >

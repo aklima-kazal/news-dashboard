@@ -47,7 +47,7 @@ export default function LoginPage() {
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
 
-        {error && <p className="text-red-500 text-sm">{error}</p>}
+        {error && <p className="text-red-600 text-sm">{error}</p>}
 
         <button className="w-full bg-blue-600 text-white py-2 rounded">
           Login

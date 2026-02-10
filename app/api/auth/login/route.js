@@ -9,7 +9,10 @@ export async function POST(req) {
   );
 
   if (!user) {
-    return Response.json({ error: "Invalid credentials" }, { status: 401 });
+    return Response.json(
+      { error: "Invalid credentials or wrong password" },
+      { status: 401 },
+    );
   }
 
   const token = uuid();

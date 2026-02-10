@@ -5,8 +5,10 @@ import SearchBar from "../components/SearchBar";
 import CategoryFilter from "../components/CategoryFilter";
 import { news as newsData } from "@/lib/data";
 import ProtectedRoute from "../components/ProtectedRoute";
-import Link from "next/link";
+
 import LogoutButton from "../components/LogoutButton";
+
+import Pagination from "../components/Pagination";
 
 // Helper: filter + search + paginate
 function getNews(searchParams = {}) {
@@ -43,7 +45,7 @@ export default function DashboardPage({ searchParams }) {
 
   return (
     <ProtectedRoute>
-      <div className="grid grid-cols-12 min-h-screen bg-black">
+      <div className="grid grid-cols-12 min-h-screen bg-slate-900">
         {/* Sidebar */}
         <aside className="col-span-12 md:col-span-3 lg:col-span-2 border-r bg-black">
           <Sidebar />
@@ -55,7 +57,9 @@ export default function DashboardPage({ searchParams }) {
             <h1 className="text-3xl font-bold mb-4 text-emerald-200">
               News Dashboard
             </h1>
-            <LogoutButton />
+            <div>
+              <LogoutButton />
+            </div>
           </div>
           {/* Search + Category Filter */}
           <SearchBar />
@@ -73,32 +77,9 @@ export default function DashboardPage({ searchParams }) {
           )}
 
           {/* Pagination */}
+
           <div className="flex gap-2 mt-8 flex-wrap">
-            {Array.from({ length: totalPages }).map((_, i) => {
-              const p = i + 1;
-
-              // Preserve search + category in links
-              const params = new URLSearchParams();
-              if (searchParams?.search)
-                params.set("search", searchParams.search);
-              if (searchParams?.category)
-                params.set("category", searchParams.category);
-              params.set("page", p);
-
-              return (
-                <a
-                  key={p}
-                  href={`?${params.toString()}`}
-                  className={`px-3 py-1 border rounded ${
-                    Number(page) === p
-                      ? "bg-blue-200 text-blue-900 "
-                      : "bg-white "
-                  }`}
-                >
-                  {p}
-                </a>
-              );
-            })}
+            <Pagination totalPages={totalPages} />
           </div>
 
           {/* Newsletter */}

@@ -55,11 +55,11 @@ export default function Sidebar() {
   }, newsData[0]);
 
   return (
-    <div className="p-4 flex flex-col gap-6 bg-gray-50 min-h-screen">
-      <h2 className="text-2xl font-bold mb-4">Analytics</h2>
+    <div className="p-4 flex flex-col gap-6  min-h-screen">
+      <h2 className="text-2xl text-amber-100 font-bold mb-4">Analytics</h2>
 
       {/* Total Articles */}
-      <div className="flex items-center gap-3 bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+      <div className="flex items-center gap-3 bg-sky-200 p-4 rounded-lg shadow hover:shadow-lg transition">
         <FiFileText className="text-blue-500 text-2xl" />
         <div>
           <p className="text-sm text-gray-500">Total Articles</p>
@@ -68,7 +68,7 @@ export default function Sidebar() {
       </div>
 
       {/* Articles by Category */}
-      <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+      <div className="bg-sky-200 p-4 rounded-lg shadow hover:shadow-lg transition">
         <h3 className="font-semibold mb-2 flex items-center gap-2">
           <FiPieChart /> Articles by Category
         </h3>
@@ -83,7 +83,7 @@ export default function Sidebar() {
       </div>
 
       {/* Daily Article Trends (Bar Chart) */}
-      <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+      <div className="bg-sky-200 p-4 rounded-lg shadow hover:shadow-lg transition">
         <h3 className="font-semibold mb-2 flex items-center gap-2">
           <FiBarChart2 /> Daily Article Trends
         </h3>
@@ -99,7 +99,7 @@ export default function Sidebar() {
       </div>
 
       {/* Pie Chart: Category Distribution */}
-      <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+      <div className="bg-sky-200 p-4 rounded-lg shadow hover:shadow-lg transition">
         <h3 className="font-semibold mb-2 flex items-center gap-2">
           <FiPieChart /> Category Distribution
         </h3>
@@ -128,7 +128,7 @@ export default function Sidebar() {
       </div>
 
       {/* Most Recent Article */}
-      <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+      <div className="bg-sky-200 p-4 rounded-lg shadow hover:shadow-lg transition">
         <h3 className="font-semibold mb-2 flex items-center gap-2">
           <FiClock /> Most Recent Article
         </h3>
