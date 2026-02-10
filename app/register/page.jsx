@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Loading from "../loading";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -31,7 +32,7 @@ export default function RegisterPage() {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <form
-        onSubmit={submit}
+        onSubmit={(e) => submit(e)}
         className="bg-white p-6 rounded shadow w-80 space-y-4"
       >
         <h1 className="text-xl font-bold">Register</h1>
